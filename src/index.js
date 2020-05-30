@@ -83,10 +83,10 @@ function postFetch(name, description, image_url, weather_id) {
     const bodyJSON = { name, description, image_url, weather_id }
     fetch(`http://localhost:3000/api/v1/outfits/${outfit.id}`, {
       method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
+      headers: { 
+        'Content-Type': 'application/json' ,
+        Accept: 'application/json', 
+      }, 
       body: JSON.stringify(bodyJSON),
     })
       .then(res => res.json())
