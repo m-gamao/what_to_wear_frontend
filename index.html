@@ -1,20 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="src/outfit.js"></script>
+    <script type="text/javascript" src="src/index.js"></script>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
 
-<html lang="en">
-<head>
-  <meta charset="utf-8">
+    <div class="form-container">
+      <form id="create-outfit-form" style="">
+        <h3>Create an Outfit!</h3>
 
-  <script type="text/javascript" src="index.js"></script>
-  
-  <title> </title>
-  <meta name="description" content=" ">
-  <meta name="author" content=" ">
+        <label>Weather:</label>
+        <select id="weather" name="name" value="${this.weather.name}">
+          <option value="1">freezing</option>
+          <option value="2">freezing/rainy</option>
+          <option value="3">cold</option>
+          <option value="4">cold/rainy</option>
+          <option value="5">cold/snowing</option>
+          <option value="6">cool</option>
+          <option value="7">cool/rainy</option>
+          <option value="8">warm</option>
+          <option value="9">warm/rainy</option>
+          <option value="10">hot</option>
+          <option value="11">hot/rainy</option>
+          <option value="12">scorching</option>
+        </select>
+        <br><br>
+        <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Describe an outfit for this weather..."></textarea>
+        <br><br>
+        <input id='input-url' type="text" name="image" value="" placeholder="Enter your outfit image URL..." class="input-text">
+        <br><br>
+        <br><br>
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+        <input id= 'create-button' type="submit" name="submit" value="Create New Outfit" class="submit">
+      </form>
 
-</head>
+    </div>
 
-<body>
-  <script src="js/scripts.js"></script>
-</body>
+<br><br>
+
+    <div id="outfit-container">
+
+    </div>
+
+  </body>
 </html>
