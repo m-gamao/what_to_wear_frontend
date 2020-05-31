@@ -73,7 +73,7 @@ function postFetch(name, description, image_url, weather_id) {
 
     document.querySelector('#outfit-container').innerHTML += newOutfit.renderOutfitCard()
   })
-}
+
 
   function updateFormHandler(e) {
     e.preventDefault();
