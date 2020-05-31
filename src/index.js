@@ -39,12 +39,19 @@ function getOutfits() {
 // this function handles the inputs from the user
 function createFormHandler(e) {
   e.preventDefault()
-  const nameInput = document.querySelector('#input-name').value
-  const descriptionInput = document.querySelector('#input-description').value
-  const imageInput = document.querySelector('#input-url').value
+  const zipcodeInput = document.querySelector('#input-zipcode').value
   const weatherId = parseInt(document.querySelector('#weather').value)
-  postFetch(nameInput, descriptionInput, imageInput, weatherId)
-}
+  postFetch(zipcodeInput, weatherId)
+
+
+// function createFormHandler(e) {
+//   e.preventDefault()
+//   const nameInput = document.querySelector('#input-name').value
+//   const descriptionInput = document.querySelector('#input-description').value
+//   const imageInput = document.querySelector('#input-url').value
+//   const weatherId = parseInt(document.querySelector('#weather').value)
+//   postFetch(nameInput, descriptionInput, imageInput, weatherId)
+// }
 
 function postFetch(name, description, image_url, weather_id) {
   // build my body object outside of my fetch
@@ -90,8 +97,7 @@ function postFetch(name, description, image_url, weather_id) {
       body: JSON.stringify(bodyJSON),
     })
       .then(res => res.json())
-      // our backend responds with the updated syllabus instance represented as JSON
+      // our backend responds with the updated outfit instance represented as JSON
       .then(updatedNote => console.log(updatedNote));
-  });
-
-
+  }
+}
