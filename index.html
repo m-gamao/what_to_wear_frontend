@@ -8,22 +8,66 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-
     <title>What to wear</title>
 
     <script type="text/javascript" src="src/outfit.js"></script>
     <script type="text/javascript" src="src/index.js"></script>
     <link href="src/style.css" rel="stylesheet" type="text/css" />
+
   </head>
   <body>
+    <style>
+      body {
+        background-image: url('https://api.timeforkids.com/wp-content/uploads/2019/09/final-cover-forest.jpg')
+      }
+      </style>
+    <div class="intro">
+      <form id="create-outfit-form">
 
-    <div class="box">
-      <form id="create-outfit-form" style = "">
-        <h3>What to wear</h3>
-        <h4>What is your zipcode?</h4>
-        <input id="zip" name="zipcode" type="text" pattern="[0-9]*">
-        <label>Weather:</label>
-        <select id="weather" name="name" value="${this.weather.name}">
+        
+
+        <h1>What to wear</h1>
+        <br>
+<h4> Want to know how to dress for the weather today? </h5>
+        <br>
+ 
+        <h4>Enter your zipcode:</h4>
+        <input id="zipcode" name="zipcode" type="text" pattern="[0-9]*">
+ <!-- <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Describe an outfit for this weather..."></textarea> --> 
+        <br><br>
+        <!-- <input id='input-url' type="text" name="image" value="" placeholder="Enter your outfit image URL..." class="input-text"> -->
+
+
+        <input id= 'create-button' type="submit" name="submit" value="What should I wear?" class="submit">
+      <!-- <div class = "input"> --><!-- </div>     -->
+    </div> 
+      </p>
+      </form>
+
+      <!-- function renderWeather(weather) {
+      <div class = "weather">
+        
+        <h4> Today's weather in your location: </h4>
+
+        
+      </div>
+
+        // generate html with info
+      } -->
+
+<br><br>
+
+    <div id="outfit-container">
+
+    </div> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+        <!-- <label>Weather:</label>
+        <select id="weather" name="name" value="">
           <option value="1">freezing</option>
           <option value="2">freezing/rainy</option>
           <option value="3">cold</option>
@@ -36,26 +80,6 @@
           <option value="10">hot</option>
           <option value="11">hot/rainy</option>
           <option value="12">scorching</option>
-        </select>
+        </select> 
         <br><br>
-        <!-- <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Describe an outfit for this weather..."></textarea> -->
-        <br><br>
-        <!-- <input id='input-url' type="text" name="image" value="" placeholder="Enter your outfit image URL..." class="input-text"> -->
-        <br><br>
-        <br><br>
-
-        <input id= 'create-button' type="submit" name="submit" value="Create New Outfit" class="submit">
-      </form>
-
-    </div>
-
-<br><br>
-
-    <div id="outfit-container">
-
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  </body>
-</html>
+       
