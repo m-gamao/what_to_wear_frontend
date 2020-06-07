@@ -3,7 +3,6 @@ class Outfit {
 
     constructor(outfit, outfitAttributes) {
       this.id = outfit.id
-      this.set = outfitAttributes.set
       this.description = outfitAttributes.description
       this.weather = outfitAttributes.category
       Outfit.all.push(this)
