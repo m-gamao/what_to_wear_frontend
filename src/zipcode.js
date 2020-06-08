@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1) fetch and load zipcode
   getZipcode()
 
-  //2) The document is the DOM. Look for an element in the html and save it to a variable, 
-    // const createOutfitForm. The #create-zipcode-form is the ID of the element. This form, 
+  //2) The document is the DOM. Look for an element in the HTML and save it to a variable, 
+    // const createZipcodeForm. The #create-zipcode-form is the ID of the element. This form, 
     // you're going to click on a button and have JS listen to when that form is submitted,
     // and do something different from what we did in Rails. JS needs to know when that form is 
     // submitted.
@@ -35,8 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
  
 }
 
-  // 5) Now render the edit form once the button is clicked
-    //weather-container is where the weather data is going to go for the user to see.
+  // 5) The HTML file presents that weather data (conditions and temp) to the user in the display 
+        //container on the page.
+        //weather-container is where the weather data is going to go for the user to see.
   const weatherContainer = document.querySelector('#weather-container')
   weatherContainer.addEventListener('click', e => {
     const id = parseInt(e.target.dataset.id);
@@ -48,36 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // })
 
-// function getWeather() {
-//   fetch(endPoint)
-//   .then(response => response.json())
-//   .then(weather => {
-//     outfits.data.forEach(outfit => {
-//       // double check how your data is nested in the console 
-//         // so you can successfully access the attributes of each individual object
-//       // debugger
-//       let newOutfit = new Outfit(outfit, outfit.attributes)
 
-//       document.querySelector('#outfit-container').innerHTML += newOutfit.renderOutfitCard()
-//     })
-//   // .catch(err => console.log(err))
-//   })
-// }
-
-
-// function createFormHandler(e) {
-//   e.preventDefault()
-//   const nameInput = document.querySelector('#input-name').value
-//   const descriptionInput = document.querySelector('#input-description').value
-//   const imageInput = document.querySelector('#input-url').value
-//   const weatherId = parseInt(document.querySelector('#weather').value)
-//   postFetch(nameInput, descriptionInput, imageInput, weatherId)
-// }
-
+//Create weather container to display to the user.
 function postFetch(description, ) {
   // build my body object outside of my fetch
-  const bodyData = {name, description, image_url, weather_id}
-
+  const bodyData = {weather.main, main.temp}
+ 
   fetch(endPoint, {
     // POST request
     method: "POST",
@@ -86,37 +63,12 @@ function postFetch(description, ) {
   })
   .then(response => response.json())
   // .catch(err => console.log(err))
-  .then(outfit => {
-    console.log(outfit);
-    const outfitData = outfit.data
+  .then(weather => {
+    console.log(weather);
+    const weatherData = weather.data
     // render JSON response
-    let newOutfit = new Outfit(outfitData, outfitData.attributes)
-
-    document.querySelector('#outfit-container').innerHTML += newOutfit.renderOutfitCard()
+    let newWeather = new Weather(weatherData, weatherData.attributes)
+ 
+    document.querySelector('#weather-container').innerHTML += newWeather.renderWeatherCard()
   })
-
-}
-  function updateFormHandler(e) {
-    e.preventDefault();
-    const id = parseInt(e.target.dataset.id);
-    const outfit = Outfit.findById(id);
-    const set = e.target.querySelector('#input-name').value;
-    const description = e.target.querySelector('#input-description').value;
-    const weather_id = parseInt(e.target.querySelector('#weather').value);
-    patchOutfit(outfit, name, description, image_url, weather_id)
-  }
-
-  function patchOutfit(outfit, name, description, image_url, weather_id) {
-    const bodyJSON = { name, description, image_url, weather_id }
-    fetch(`http://localhost:3000/api/v1/outfits/${outfit.id}`, {
-      method: 'PATCH',
-      headers: { 
-        'Content-Type': 'application/json' ,
-        Accept: 'application/json', 
-      }, 
-      body: JSON.stringify(bodyJSON),
-    })
-      .then(res => res.json())
-      // our backend responds with the updated outfit instance represented as JSON
-      .then(updatedNote => console.log(updatedNote));
-  }
+ 
