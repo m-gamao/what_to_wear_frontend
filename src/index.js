@@ -2,14 +2,14 @@ const endPoint = "http://localhost:3000/api/v1/outfits"
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1) fetch and load zipcode
-  //getZipcode()
+  // 1) fetch and load city
+  // getCityInput()
 
   //2) The document is the DOM. Look for an element in the HTML and save it to a variable, 
-    // const createZipcodeForm. The #create-zipcode-form is the ID of the element. This form, 
+    // const selectCityform. The #select-city-form is the ID of the element. On this form, 
     // you're going to click on a button and have JS listen to when that form is submitted,
-    // and do something different from what we did in Rails. JS needs to know when that form is 
-    // submitted.
+    // and do something different from what we did in Rails. 
+    // JS needs to know when that form is submitted.
   const selectCityform = document.querySelector("#select-city-form")
 
   //3) The Event listener takes 2 functions- 
@@ -19,32 +19,51 @@ document.addEventListener('DOMContentLoaded', () => {
   selectCityform.addEventListener("submit", (e) => createFormHandler(e))
 })
 
-  //4) This function handles the inputs from the user.
-  function createFormHandler(e) {   //The createFormHandler runs whenever the form is submitted. 
-    e.preventDefault()
-  
-    const cityInput = document.querySelector('cityInput').value  
-    //const cityInput and the querySelector #cityInput comes from the html. 
-    //gets the data from the user (in the drop down menu)
-    console.log(cityInput)
-  }
+//4) Fetch the data from the backend API. You're calling on this URL. 
+  // Then you get a response in JSON. That data can be checked in the console.
 
-
-//5) Fetch the data from the API
 fetch('http://localhost:3000/api/v1/conditions')
     .then(response => {
       return response.json();
     })
-    .then(data => console.log(data));
+    .then(weather => {
+      // weather.data.forEach(weather => {
+      // double check how your data is nested in the console so you can successfully access the attributes of each individual object
+      // debugger
+      let newWeather = new Weather(weather, weather.attributes)
+
+      document.querySelector('#weather-container').innerHTML += newWeather.renderWeatherCard()
+    })
+  // .catch(err => console.log(err))
+  
+
+//5) This function handles the inputs from the user.
+  //The createFormHandler runs whenever the form is submitted. 
+  //const cityInput and the querySelector #cityInput comes from the html. 
+  //'cityInput' is the ID. We get the value of that ID in the html.
+  //gets the data from the user (in the drop down menu)
+  function createFormHandler(e) {  
+    e.preventDefault()
+    const cityInput = document.querySelector('#cityInput').value  
+    console.log(cityInput)
+  
+  }
+  
+
+
+
+
   // .then(r => r.json())
   // .then(json => {
     // let weather=json.description
     // let temperature=json.temperature
     // let outfit=json.outfit  
-    document.getElementById("insert").innerHTML = "write me to the screen";
-    renderWeather() {
-      return `<tr><td>${this.description}</td><td>${this.temperature}</td>
-    }
+
+//6) Now you want to 
+    // document.getElementById("insert").innerHTML = "write me to the screen";
+    // renderWeather() {
+    //   return `<tr><td>${this.description}</td><td>${this.temperature}</td>
+    // }
 
 
   // .then(function(resp) {

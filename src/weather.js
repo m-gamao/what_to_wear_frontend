@@ -4,6 +4,7 @@ class Weather {
       this.id = weather.id
       this.description = weatherAttributes.description
       this.temperature = weatherAttributes.temperature
+      this.outfit = weatherAttributes.outfit
       Weather.all.push(this)
     }
   

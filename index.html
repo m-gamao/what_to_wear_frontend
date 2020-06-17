@@ -36,13 +36,15 @@
         <label for="cities">Please select your city:</label>
 </h4>
 <h5>
+  <!-- option value is the "condition_id" in the db. that will be the .value 
+    in const cityInput = document.querySelector('cityInput').value in js file-->
 <select name="cities" id="cityInput">
-  <option value="1">New York City</option>
-  <option value="2">Los Angeles</option>
-  <option value="3">Chicago</option>
-  <option value="4">London</option>
-  <option value="5">Oslo</option>
-  <option value="6">Paris</option>
+  <option value="50">New York City</option>
+  <option value="55">Los Angeles</option>
+  <option value="51">Chicago</option>
+  <option value="52">London</option>
+  <option value="53">Oslo</option>
+  <option value="54">Paris</option>
 </select></h5>
  <!-- <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Describe an outfit for this weather..."></textarea> --> 
         <br><br>
@@ -52,9 +54,11 @@
         <input id= 'create-button' type="submit" name="submit" value="What should I wear?" class="submit">
       <!-- <div class = "input"> --><!-- </div>     -->
 
+      <div id="weather-container">
 
+      </div>
 <!-- These are placeholders for the weather data -->
-<div class="Weather"></div>
+<!-- <div class="Weather"></div>
 <div>
           <div id="description">Weather:</div>
           <h1 id="temperature">Temperature:</h1>
@@ -62,7 +66,7 @@
         </div>
 
 
-    </div> 
+    </div>  -->
       </p>
       </form>
 
