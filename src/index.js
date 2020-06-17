@@ -24,20 +24,27 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault()
   
     const cityInput = document.querySelector('cityInput').value  
-    //const cityInput and the querySelector #cityInput comes from the html.
+    //const cityInput and the querySelector #cityInput comes from the html. 
+    //gets the data from the user (in the drop down menu)
     console.log(cityInput)
   }
 
 
 //5) Fetch the data from the API
 fetch('http://localhost:3000/api/v1/conditions')
-  .then(response => response.json())
-  .then(data => console.log(data));
-
-  let theDescrip = data.description;
-  let theTemp = data.temperature;
-  let theOutfit = data.outfit;
-
+    .then(response => {
+      return response.json();
+    })
+    .then(data => console.log(data));
+  // .then(r => r.json())
+  // .then(json => {
+    // let weather=json.description
+    // let temperature=json.temperature
+    // let outfit=json.outfit  
+    document.getElementById("insert").innerHTML = "write me to the screen";
+    renderWeather() {
+      return `<tr><td>${this.description}</td><td>${this.temperature}</td>
+    }
 
 
   // .then(function(resp) {
@@ -58,4 +65,3 @@ fetch('http://localhost:3000/api/v1/conditions')
 
 
   // 6) Backend sends response to frontend - the city's weather, and the outfit to wear.
-  
