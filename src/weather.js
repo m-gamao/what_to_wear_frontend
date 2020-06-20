@@ -1,11 +1,12 @@
 class Weather {
 
-    constructor(weather, weatherAttributes) {
+    constructor(weather) {
       this.id = weather.id
-      this.description = weatherAttributes.description
-      this.temperature = weatherAttributes.temperature
-      this.outfit = weatherAttributes.outfit
+      this.description = description
+      this.temperature = temperature
+      this.outfit = outfit
       Weather.all.push(this)
+      console.log(weather)
     }
   
     renderWeatherCard() {
@@ -21,4 +22,4 @@ class Weather {
   
   }
   
-  Outfit.all = [];
+Weather.all = [];
