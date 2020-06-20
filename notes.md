@@ -112,3 +112,31 @@ fetch('http://localhost:3000/api/v1/conditions/:id(.:format))
     newWeather.renderWeatherCard()
     console.log(renderWeatherCard)
 }
+____________________________________________________________
+class Weather {
+
+    constructor(weather) {
+      // this.id = weather.id
+      // this.name = name
+      this.description = description
+      this.temperature = temperature
+      this.outfit = outfit
+      Weather.all.push(this)
+      console.log(weather)
+    }
+  
+    renderWeatherCard() {
+      return `
+        <div>
+        /<div data-id=${this.name}>
+          <h3>${this.description}</h3>
+          <h3>${this.temperature}</h3>
+          <h4>${this.outfit}</h4>
+          // <button data-id=${this.image}>edit</button>
+        </div>
+        <br><br>`;
+    }
+  
+  }
+  
+Weather.all = [];

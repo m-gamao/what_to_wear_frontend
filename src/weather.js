@@ -1,21 +1,23 @@
 class Weather {
 
-    constructor(weather) {
+    constructor(description, temperature, outfit) {
       this.id = weather.id
-      this.description = description
-      this.temperature = temperature
+      // this.name = name
+      this.description = description,
+      this.temperature = temperature,
       this.outfit = outfit
-      Weather.all.push(this)
-      console.log(weather)
+      
+      // Weather.all.push(this)
+      
     }
   
     renderWeatherCard() {
       return `
-        <div data-id=${this.id}>
+      <div data-id=${this.id}>
+        <div>
           <h3>${this.description}</h3>
-          <p>${this.temperature}</p>
-          <p>${this.outfit}</p>
-          // <button data-id=${this.image}>edit</button>
+          <h3>${this.temperature}</h3>
+          <h4>${this.outfit}</h4>
         </div>
         <br><br>`;
     }

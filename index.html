@@ -10,14 +10,13 @@
 
     <title>What to wear</title>
     <script type="text/javascript" src="src/weather.js"></script>
-    <!-- <script type="text/javascript" src="src/outfit.js"></script> -->
     <script type="text/javascript" src="src/index.js"></script>
     <link href="src/style.css" rel="stylesheet" type="text/css" />
     <style>
       body {
         background-image: url('https://api.timeforkids.com/wp-content/uploads/2019/09/final-cover-forest.jpg')
       }
-      </style>
+    </style>
   </head>
  
   <body>
@@ -27,36 +26,43 @@
 
         <h1>What to wear</h1>
         <br>
-<h4> Want to know how to dress for the weather today? </h5>
+        <h4> Want to know how to dress for the weather today? </h5>
         <br>
  
        
         <!-- <select id="CityInput" name="city" type="text"></select> -->
-<h4>
+        <h4>
         <label for="cities">Please select your city:</label>
-</h4>
-<h5>
+        </h4>
+    <h5>
   <!-- option value is the "condition_id" in the db. that will be the .value 
     in const cityInput = document.querySelector('cityInput').value in js file-->
-<select name="cities" id="cityInput">
-  <option value="50">New York City</option>
-  <option value="55">Los Angeles</option>
-  <option value="51">Chicago</option>
-  <option value="52">London</option>
-  <option value="53">Oslo</option>
-  <option value="54">Paris</option>
-</select></h5>
- <!-- <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Describe an outfit for this weather..."></textarea> --> 
-        <br><br>
+    <select name="cities" id="cityInput">
+      <option value="50">New York City</option>
+      <option value="55">Los Angeles</option>
+      <option value="51">Chicago</option>
+      <option value="52">London</option>
+      <option value="53">Oslo</option>
+      <option value="54">Paris</option>
+    </select>
+    </h5>
+        <!-- <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Describe an outfit for this weather..."></textarea> --> 
+    <br><br>
         <!-- <input id='input-url' type="text" name="image" value="" placeholder="Enter your outfit image URL..." class="input-text"> -->
+    <input id= 'create-button' type="submit" name="submit" value="What should I wear?" class="submit">
+    
+
+    <div id="weather-container">
+
+    </div>
+
+  </body>
+  </html>
 
 
-        <input id= 'create-button' type="submit" name="submit" value="What should I wear?" class="submit">
-      <!-- <div class = "input"> --><!-- </div>     -->
 
-      <div id="weather-container">
 
-      </div>
+<!-- END -->
 <!-- These are placeholders for the weather data -->
 <!-- <div class="Weather"></div>
 <div>
@@ -67,9 +73,7 @@
 
 
     </div>  -->
-      </p>
-      </form>
-      <label id="Weather info"></label>
+
       <!-- function renderWeather(weather) {
       <div class = "weather">
         
@@ -81,7 +85,6 @@
         // generate html with info
       } -->
 
-<br><br>
 
     <!-- <div id="outfit-container">
 
@@ -89,8 +92,6 @@
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> -->
-  </body>
-</html>
 
         <!-- <label>Weather:</label>
         <select id="weather" name="name" value="">
