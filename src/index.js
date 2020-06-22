@@ -1,4 +1,4 @@
-const endPoint = "http://localhost:3000/api/v1/conditions"
+// const endPoint = "http://localhost:3000/api/v1/conditions"
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -29,14 +29,21 @@ function createFormHandler(e) {
         const temperature = json['temperature'];
         const outfit = json['outfit'];
   
+
+    //   If the condition_id == the option value, then render Weather Card for ${id}
+
+        document.getElementById('#weather-container').innerHTML= '';
+        newWeather.renderWeatherCard();
+
         let newWeather = new Weather(weather, temperature, outfit);
         
         return newWeather
       })
   }
   
-  document.getElementById('#weather-container').innerHTML= '';
-  newWeather.renderWeatherCard();
+
+
+
 
 //   const selectCityform = document.querySelector('#select-city-form');
 //   selectCityform.addEventListener('submit', e => createFormHandler(e));
