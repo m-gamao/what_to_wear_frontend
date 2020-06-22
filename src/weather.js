@@ -1,27 +1,22 @@
 class Weather {
 
-    constructor(description, temperature, outfit) {
-      this.id = weather.id
-      // this.name = name
-      this.description = description,
-      this.temperature = temperature,
-      this.outfit = outfit
-      
-      // Weather.all.push(this)
-      
+    constructor(weather) {
+      this.id = weather.id;
+      this.description = weather.description;
+      this.temperature = weather.temperature;
+      this.outfit = weather.outfit;     
     }
   
+
+    //This 'card' gets copy and pasted by JS into the HTML to display to the user: 
     renderWeatherCard() {
-      return `
-      <div data-id=${this.id}>
-        <div>
-          <h3>${this.description}</h3>
-          <h3>${this.temperature}</h3>
-          <h4>${this.outfit}</h4>
+      return `<div class="card">
+        <h2>Weather: ${this.description}</h3>
+        <h2>Temp: ${this.temperature}</h3>
+        <h3>You should wear: ${this.outfit}</h4>
         </div>
         <br><br>`;
     }
   
   }
   
-Weather.all = [];
