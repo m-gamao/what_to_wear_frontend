@@ -4,10 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
     <title>What to wear</title>
     <script type="text/javascript" src="src/weather.js"></script>
     <script type="text/javascript" src="src/index.js"></script>
@@ -18,26 +16,18 @@
       }
     </style>
   </head>
- 
   <body>
-
-    <div class="intro">
-      <form id="select-city-form">      
-
-        <h1>What to wear</h1>
-        <br>
-        <h4> Want to know how to dress for the weather today? </h5>
-        <br>
- 
-       
-        <!-- <select id="CityInput" name="city" type="text"></select> -->
-        <h4>
+    <div class="form-container">
+      <form id="city-form">      
+        <h1>What to wear</h1><br>
+        <h4> 
+        Want to know how to dress for the weather today? <br>
         <label for="cities">Please select your city:</label>
         </h4>
-    <h5>
-  <!-- option value is the "condition_id" in the db. that will be the .value 
-    in const cityInput = document.querySelector('cityInput').value in js file-->
-    <select name="cities" id="cityInput">
+
+  <!-- 'option value' is the cities_condition id in the db. That will be the .value 
+    in const citySelect = document.querySelector('citySelect').value in js file-->
+    <select name="cities" id="citySelect">
       <option value="1">New York City</option>
       <option value="2">Los Angeles</option>
       <option value="3">Chicago</option>
@@ -45,68 +35,12 @@
       <option value="5">Oslo</option>
       <option value="6">Paris</option>
     </select>
-    </h5>
-        <!-- <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Describe an outfit for this weather..."></textarea> --> 
-    <br><br>
-        <!-- <input id='input-url' type="text" name="image" value="" placeholder="Enter your outfit image URL..." class="input-text"> -->
+    </h5><br><br>
     <input id= 'create-button' type="submit" name="submit" value="What should I wear?" class="submit">
-    
-
     <div id="weather-container">
-
     </div>
-
   </body>
   </html>
 
 
 
-
-<!-- END -->
-<!-- These are placeholders for the weather data -->
-<!-- <div class="Weather"></div>
-<div>
-          <div id="description">Weather:</div>
-          <h1 id="temperature">Temperature:</h1>
-          <div id="outfit">Outfit for today:</div>
-        </div>
-
-
-    </div>  -->
-
-      <!-- function renderWeather(weather) {
-      <div class = "weather">
-        
-        <h4> Today's weather in your location: </h4>
-
-        
-      </div>
-
-        // generate html with info
-      } -->
-
-
-    <!-- <div id="outfit-container">
-
-    </div> --> 
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> -->
-
-        <!-- <label>Weather:</label>
-        <select id="weather" name="name" value="">
-          <option value="1">freezing</option>
-          <option value="2">freezing/rainy</option>
-          <option value="3">cold</option>
-          <option value="4">cold/rainy</option>
-          <option value="5">cold/snowing</option>
-          <option value="6">cool</option>
-          <option value="7">cool/rainy</option>
-          <option value="8">warm</option>
-          <option value="9">warm/rainy</option>
-          <option value="10">hot</option>
-          <option value="11">hot/rainy</option>
-          <option value="12">scorching</option>
-        </select> 
-        <br><br>
-       

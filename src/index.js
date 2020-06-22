@@ -1,55 +1,29 @@
-// const endPoint = "http://localhost:3000/api/v1/conditions"
-
+// 1) Event listener for the form:
 document.addEventListener('DOMContentLoaded', () => {
-
-    const selectCityform = document.querySelector("#select-city-form")
-  
-    selectCityform.addEventListener("submit", e => createFormHandler(e))
+    const cityForm = document.querySelector("#city-form");
+    cityform.addEventListener("submit", e => createFormHandler(e))
   })
 
-
-// const selectCityform = document.querySelector('#select-city-form');
-// selectCityform.addEventListener('submit', e => createFormHandler(e));
-
+// 2) Form handler that handles the event. The city's options value is the id:
 function createFormHandler(e) {
-    e.preventDefault()
-    const cityInput = document.querySelector('#cityInput').value
-    // console.log(cityInput); // Otherwise this function has no effect
-  }
+    e.preventDefault()  //prevents page refresh.
+    //get the value selected by the user:
+    const optionSelect = document.querySelector('#city-select').value;
+    // console.log(citySelect); // Otherwise this function has no effect
+}
+    //now we do the fetch, we'll send the cities condition id to the backend, 
+      //to get the condition related to it.
 
-  // id is a natural number, format is a file extension (string)
-  function renderWeatherCard (id) {
-    fetch(`http://localhost:3000/api/v1/cities_conditions/${id}`)
-    // fetch(`http://localhost:3000/api/v1/conditions/${id}.${format}`)
-      .then(response => {
-        return response.json();
-      })
-      .then(json => {
-        const weather = json['description'];
-        const temperature = json['temperature'];
-        const outfit = json['outfit'];
-  
+      fetch(`/api/v1/conditions/${optionSelect}`)  
+      // so that params[:id] to be the id of the cities_condition
+      .then(response => response.json())
+      .then(data => {
+          displayWeather(data); //calls the below function
+      });
 
-    //   If the condition_id == the option value, then render Weather Card for ${id}
-
-        document.getElementById('#weather-container').innerHTML= '';
-        newWeather.renderWeatherCard();
-
-        let newWeather = new Weather(weather, temperature, outfit);
-        
-        return newWeather
-      })
-  }
-  
-
-
-
-
-//   const selectCityform = document.querySelector('#select-city-form');
-//   selectCityform.addEventListener('submit', e => createFormHandler(e));
-
-//   document.addEventListener('DOMContentLoaded', () => {
-//     document
-//       .querySelector("#select-city-form")
-//       .selectCityform.addEventListener("submit", e => createFormHandler(e))
-//   })
+// 3) This is where the Weather class constructor comes into play:
+function displayWeather(weather) {
+  let newWeather = new Weather(data);  // Data comes from the above fetch. Pass it to this method.
+  let newCard = newWeather.renderWeatherCard();
+  document.getElementById('#weather-container').innerHTML = newCard;
+}
