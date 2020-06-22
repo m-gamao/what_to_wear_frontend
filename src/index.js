@@ -10,11 +10,11 @@ function createFormHandler(e) {
     //get the value selected by the user:
     const userInput = document.querySelector('#user-input').value;
     console.log(userInput); // Otherwise this function has no effect
-}
+
     //now we do the fetch, we'll send the cities condition id to the backend, 
       //to get the condition related to it.
 
-      fetch(`/api/v1/conditions/${userInput}`)  
+      fetch(`http://localhost:3000/api/v1/cities_conditions/${userInput}`)  
       // so that params[:id] to be the id of the cities_condition
       .then(response => response.json())
       .then(data => {
@@ -23,4 +23,5 @@ function createFormHandler(e) {
             let newCard = newWeather.renderWeatherCard();
             document.getElementById('#weather-container').innerHTML = newCard;
         })
-    })
+      })
+}
