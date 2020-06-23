@@ -11,9 +11,11 @@ class Weather {
     //This 'card' gets copy and pasted by JS into the HTML to display to the user: 
     renderWeatherCard() {
       return `<div class="card">
-        <h2>Weather: ${this.description}</h3>
-        <h2>Temp: ${this.temperature}</h3>
-        <h3>You should wear: ${this.outfit}</h4>
+        <h5>
+        Weather: ${this.description}
+        Temp: ${this.temperature}
+        You should wear: ${this.outfit}
+        </h5>
         </div>
         <br><br>`;
     }
