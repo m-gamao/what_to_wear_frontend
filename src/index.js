@@ -24,3 +24,18 @@ function createFormHandler(e) {
         })
       
 }
+
+// 3) Give edit and update capability to outfits model
+// create a function that adds new outfits and displays them
+
+// Step 1: the user clicks the "add-new-outfit" button, and fills out the form:
+document.getElementById("add-outfit-button").addEventListener("click", addNewOutfit);  
+  const addNewOutfit = document.querySelector("#new-outfit-form");
+  newOutfitForm.addEventListener("submit", e => createOutfit(e))
+
+
+function createOutfit(e) {
+  e.preventDefault() //prevent page refresh.
+  //now get the 
+}
+   

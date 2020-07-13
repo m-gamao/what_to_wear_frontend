@@ -27,6 +27,7 @@
 
   <!-- 'option value' is the cities_condition id in the db. That will be the .value 
     in const citySelect = document.querySelector('citySelect').value in js file-->
+    <h5>
     <select name="cities" id="user-input">
       <option value="1">New York City</option>
       <option value="2">Los Angeles</option>
@@ -35,10 +36,39 @@
       <option value="5">Beijing</option>
       <option value="6">Paris</option>
     </select>
-    </h5><br><br>
+    <br><br>
     <input id= 'create-button' type="submit" name="submit" value="What should I wear?" class="submit">
+    <br><br>
     <div id="weather-container">
     </div>
+    </h5>
+    <h6>
+
+      <!-- <input id= 'add-outfit-button' type="" name="submit" value="Add new outfits" class="submit"></h6> -->
+<!-- place a button below for adding a new outfit -->
+    
+<button id="add-outfit-button">Add a new outfit!</button></h6>
+   
+    <!--when you click the above button, a new outfit form appears  -->
+    <form id="#new-outfit-form"></form>
+      <h5>Make a new outfit!</h5>
+      <h4>
+      <!-- must fix the below line in quotes, where the form data will be sent -->
+      <form action="/action_page.php"> 
+        <label for="description">Description:</label><br>
+        <input type="text" id="description" name="description" value=""><br>
+        Weather types:
+        <select name="weather types" id="weather-type-input">
+          <option value="cool">Cool</option>
+          <option value="cool/rainy">Cool/rainy</option>
+          <option value="warm">Warm</option>
+          <option value="warm/rainy">Warm/rainy</option>
+          <option value="hot">Hot</option>
+        <input type="submit" value="Submit">
+      </form> 
+      <div id="all-outfits-container">
+      </div>
+    </h4>
   </body>
   </html>
 
