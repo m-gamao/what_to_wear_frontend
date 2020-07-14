@@ -44,28 +44,50 @@
     </h5>
     <h6>
 
-      <!-- <input id= 'add-outfit-button' type="" name="submit" value="Add new outfits" class="submit"></h6> -->
+      
 <!-- place a button below for adding a new outfit -->
+
+<button type="button" onclick="outfits(1)" id="insert" value="Add new Outfits">Add New Outfits!</button>
+
+<!-- Put the form fields below for condition and outfit description -->
+
+<form id="outfits-form" action="">
+  <h5>Make a new outfit!</h5>
+  <h4>    
+    <label for="description">Description:</label><br>
+    <input type="text" id="description" name="description" value=""><br>
     
-<button id="add-outfit-button">Add a new outfit!</button></h6>
-   
-    <!--when you click the above button, a new outfit form appears  -->
-    <form id="#new-outfit-form"></form>
-      <h5>Make a new outfit!</h5>
-      <h4>
-      <!-- must fix the below line in quotes, where the form data will be sent -->
-      <form action="/action_page.php"> 
-        <label for="description">Description:</label><br>
-        <input type="text" id="description" name="description" value=""><br>
-        Weather types:
-        <select name="weather types" id="weather-type-input">
-          <option value="cool">Cool</option>
-          <option value="cool/rainy">Cool/rainy</option>
-          <option value="warm">Warm</option>
-          <option value="warm/rainy">Warm/rainy</option>
-          <option value="hot">Hot</option>
-        <input type="submit" value="Submit">
-      </form> 
+    Weather types:
+    
+    <select name="weather types" id="weather-type-input">
+      <option value="cool">Cool</option>
+      <option value="cool/rainy">Cool/rainy</option>
+      <option value="warm">Warm</option>
+      <option value="warm/rainy">Warm/rainy</option>
+      <option value="hot">Hot</option>
+    <input type="submit" value="Submit">
+  </form> 
+</form>
+
+<script type="text/javascript">
+
+  window.onload = function() {
+
+    document.getElementById("outfits").style.display = "none";
+
+  };
+
+  function outfits(1) {
+  
+    if (a == 1) {
+      document.getElementById("outfits").style.display = "block";
+    } else {
+      document.getElementById("outfits").style.display = "none";
+    }
+      
+  }
+</script>
+
       <div id="all-outfits-container">
       </div>
     </h4>
