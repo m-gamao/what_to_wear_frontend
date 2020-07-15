@@ -33,12 +33,23 @@ function createFormHandler(e) {
 window.onload = function () {
   document.getElementById("outfits-form").style.display = "none";
 };
+
 function displayForm() {
-    document.getElementById("outfits-form").style.display = "block";
+  document.getElementById("outfits-form").style.display = "block";
 }
-function createOutfits(e) {
+
+function getOutfits(e) {
   e.preventDefault() //prevent page refresh.
-  //now get the 
-  const addNewOutfit = document.querySelector("#outfits-form");
+  //now get the input from the user
+  const newDescription = document.querySelector("#description-input").value;
+  const newWeatherType = document.querySelector("#weather-type-input").value;
   document.addEventListener("submit", e => createOutfits(e))
 }
+
+function createOutfits(e) {
+  e.preventDefault()
+  let newOutfits = new Outfits(data);   
+  let newOutfitsCard = newOutfits.renderOutfitsCard();
+  document.getElementById('outfits-container').innerHTML = newOutfitsCard;
+}
+
