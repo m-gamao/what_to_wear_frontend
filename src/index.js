@@ -29,13 +29,16 @@ function createFormHandler(e) {
 // create a function that adds new outfits and displays them
 
 // Step 1: the user clicks the "add-new-outfit" button, and fills out the form:
-document.getElementById("add-outfit-button").addEventListener("click", addNewOutfit);  
-  const addNewOutfit = document.querySelector("#new-outfit-form");
-  newOutfitForm.addEventListener("submit", e => createOutfit(e))
 
-
-function createOutfit(e) {
+window.onload = function () {
+  document.getElementById("outfits-form").style.display = "none";
+};
+function displayForm() {
+    document.getElementById("outfits-form").style.display = "block";
+}
+function createOutfits(e) {
   e.preventDefault() //prevent page refresh.
   //now get the 
+  const addNewOutfit = document.querySelector("#outfits-form");
+  document.addEventListener("submit", e => createOutfits(e))
 }
-   
