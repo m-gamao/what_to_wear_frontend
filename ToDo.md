@@ -1,3 +1,23 @@
+
+7/16/20 to do:
+1. *create a form that has inputs for the outfit. 
+2. *One of those inputs should be a series of check boxes that represent the possible cities. 
+3. *When the form is submitted, it should be sent to the cities_destination controller's update method. 
+4. In that method: 
+  a. find the city by its id, it will be one of the attributes coming from the form. 
+  b. create a new outfit based on the form data coming in. c. set the city's outfit to the newly created outfit.
+5. the def edit will be used to get the json version of the outfit so that you can populate the form with the current city and its current outfit. 
+6. Then the def update will be where you send the new form data from js to update
+
+
+
+
+
+
+
+
+
+
 const endPoint = "http://localhost:3000/api/v1/outfits"
 
 

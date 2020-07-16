@@ -48,6 +48,17 @@ function getOutfits(e) {
 
 function createOutfits(e) {
   e.preventDefault()
+  fetch(`http://localhost:3000/api/v1/cities_conditions/${userInput}/`)  
+  // so that params[:id] to be the id of the cities_condition
+  .then(response => response.json())
+  .then(data => {
+        let newWeather = new Weather(data);  // Data comes from the above fetch. Pass it to this method.
+        let newCard = newWeather.renderWeatherCard();
+        document.getElementById('weather-container').innerHTML = newCard;
+    })
+
+
+function showOutfits(e)  
   let newOutfits = new Outfits(data);   
   let newOutfitsCard = newOutfits.renderOutfitsCard();
   document.getElementById('outfits-container').innerHTML = newOutfitsCard;

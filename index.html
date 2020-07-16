@@ -45,13 +45,40 @@
 
 <!-- place a button below for adding a new outfit -->
 
-<button id="eventClick" onclick=displayForm()> Add New Outfits!</button>
+<button id="eventClick" onclick=displayForm()>Edit my outfits</button>
 
   <!--Put the form fields below for condition and outfit description-->
 
 <form id="outfits-form" action="">
-  <label for="description">Description:</label><br>
-  <input type="text" id="description-input" name="description-input" value=""><br>
+  <!-- <div class="div1"> -->
+  <!-- <fieldset> -->
+    <br> 
+    <h5>
+    Select a city:
+    <p>
+      <label></label>
+        <input type = "checkbox" id = "checkcity-id" value = "1" />
+        <label for = "checkcity">New York City </label>
+
+        <input type = "checkbox" id = "checkcity-id" value = "2" />
+        <label for = "Los Angeles">Los Angeles </label>
+
+        <input type = "checkbox" id = "checkcity-id" value = "3" />
+        <label for = "checkcity">Tokyo</label>
+
+        <input type = "checkbox" id = "checkcity-id" value = "4" />
+        <label for = "checkcity">Beijing</label>
+
+        <input type = "checkbox" id = "checkcity-id" value = "5" />
+        <label for = "checkcity">Paris</label>
+
+        <input type = "checkbox" id = "checkcity-id" value = "6" />
+        <label for = "checkcity">London</label>
+    </p>
+    </h5>
+  <!-- </fieldset> -->
+  <!-- </div> -->
+  <div class="div2">
    Weather types:
   <select name="weather types" id="weather-type-input">
     <option value="cool">Cool</option>
@@ -60,13 +87,27 @@
     <option value="warm/rainy">Warm/rainy</option>
     <option value="hot">Hot</option>
     <input type="submit" value="Submit">
-</form>
+  </div>
+  <br>
+  <div class="div3">
+<label for="description">Description:</label>
+<input type="text" id="description-input" name="description-input" value=""><br>
+  </div>
   <div id="outfits-container">
   </div>
 </h4>
 </body>
 </html>
 
+<!-- 
+1. *Create a form that has inputs for the outfit. 
+2. *One of those inputs should be a series of check boxes that represent the possible cities. 
+3. When the form is submitted, it should be sent to the cities_destination controller's update method. 
+4. In that method: 
+  a. find the city by its id, it will be one of the attributes coming from the form. 
+  b. create a new outfit based on the form data coming in. 
+  c. set the city's outfit to the newly created outfit. -->
 
 
-</h5>
+
+ 

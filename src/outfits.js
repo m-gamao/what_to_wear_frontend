@@ -6,9 +6,8 @@ class Outfit {
       this.weather_type = outfit.weather_type;  
     }
   
-
     //This 'card' gets copy and pasted by JS into the HTML to display to the user: 
-    //How do I make sure that ALL the created outfits show up here??
+
     renderOutfitsCard() {
       return `<div class="card">
         <h4>
