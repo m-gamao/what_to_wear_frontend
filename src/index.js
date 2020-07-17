@@ -64,3 +64,34 @@ function showOutfits(e)
   document.getElementById('outfits-container').innerHTML = newOutfitsCard;
 }
 
+// ALTERNATE CODE FOR 2ND FORM IS BELOW!!!!!
+
+
+function createFormHandler(e) {
+  e.preventDefault()
+  const cityInput = document.querySelector('#checkcity-id').value
+  const weatherTypeInput = document.querySelector('#weather-type-input').value  
+  const descriptionInput = document.querySelector('#description-input').value
+  postFetch(cityInput, weatherTypeInput, descriptionInput)
+}
+
+function postFetch(condition_id, weather_type, description) {
+  // build my body object outside of my fetch
+  const bodyData = {condition_id, weather_type, description}
+
+  fetch(endPoint, {
+    // POST request
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(bodyData)
+  })
+  .then(response => response.json())
+  .then(outfit => {
+    console.log(outfit);
+    const outfitData = outfit.data
+    // render JSON response
+    let newOutfit = new Outfit(outfitData, outfitData.attributes)
+    document.querySelector('#outfit-container').innerHTML += newOutfit.renderOutfitCard()
+  })
+
+}
