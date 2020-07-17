@@ -27,7 +27,7 @@
 
   <!-- 'option value' is the cities_condition id in the db. That will be the .value 
     in const citySelect = document.querySelector('citySelect').value in js file-->
-    <h5>
+  <h5>
     <select name="cities" id="user-input">
       <option value="1">New York City</option>
       <option value="2">Los Angeles</option>
@@ -41,6 +41,7 @@
     <br><br>
     <div id="weather-container">
     </div>
+    
     </form>
 
 <!-- place a button below for adding a new outfit -->
@@ -53,29 +54,28 @@
   <!-- <div class="div1"> -->
   <!-- <fieldset> -->
     <br> 
-    <h5>
+
     Select a city:
     <p>
       <label></label>
         <input type = "checkbox" id = "checkcity-id" value = "1" />
-        <label for = "checkcity">New York City </label>
+        <label for = "New York City">New York City </label>
 
         <input type = "checkbox" id = "checkcity-id" value = "2" />
         <label for = "Los Angeles">Los Angeles </label>
 
         <input type = "checkbox" id = "checkcity-id" value = "3" />
-        <label for = "checkcity">Tokyo</label>
+        <label for = "Tokyo">Tokyo</label>
 
         <input type = "checkbox" id = "checkcity-id" value = "4" />
-        <label for = "checkcity">Beijing</label>
+        <label for = "Beijing">Beijing</label>
 
         <input type = "checkbox" id = "checkcity-id" value = "5" />
-        <label for = "checkcity">Paris</label>
+        <label for = "Paris">Paris</label>
 
         <input type = "checkbox" id = "checkcity-id" value = "6" />
-        <label for = "checkcity">London</label>
+        <label for = "London">London</label>
     </p>
-    </h5>
   <!-- </fieldset> -->
   <!-- </div> -->
   <div class="div2">
@@ -86,6 +86,7 @@
     <option value="warm">Warm</option>
     <option value="warm/rainy">Warm/rainy</option>
     <option value="hot">Hot</option>
+  </select>
     <input type="submit" value="Submit">
   </div>
   <br>
@@ -93,9 +94,10 @@
 <label for="description">Description:</label>
 <input type="text" id="description-input" name="description-input" value=""><br>
   </div>
+  </form>
   <div id="outfits-container">
   </div>
-</h4>
+</h5>
 </body>
 </html>
 

@@ -46,7 +46,7 @@ function getOutfits(e) {
   document.addEventListener("submit", e => createOutfits(e))
 }
 
-function createOutfits(e) {
+function postFetch(e) {
   e.preventDefault()
   fetch(`http://localhost:3000/api/v1/cities_conditions/${userInput}/`)  
   // so that params[:id] to be the id of the cities_condition
