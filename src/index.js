@@ -2,6 +2,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cityForm = document.querySelector("#city-form");
     cityForm.addEventListener("submit", e => createFormHandler(e))
+    const outfitsForm = document.querySelector("#outfits-form");
+    outfitsForm.addEventListener("submit", e => postFetchOutfits(e))
   })
 
 // 2) Form handler that handles the event. The city's options value is the id:
@@ -56,42 +58,48 @@ function postFetch(e) {
         let newCard = newWeather.renderWeatherCard();
         document.getElementById('weather-container').innerHTML = newCard;
     })
+  }
 
-
-function showOutfits(e)  
-  let newOutfits = new Outfits(data);   
-  let newOutfitsCard = newOutfits.renderOutfitsCard();
-  document.getElementById('outfits-container').innerHTML = newOutfitsCard;
-}
+// function showOutfits(e) {
+//   let newOutfits = new Outfits(data);   
+//   let newOutfitsCard = newOutfits.renderOutfitsCard();
+//   document.getElementById('outfits-container').innerHTML = newOutfitsCard;
+// }
 
 // ALTERNATE CODE FOR 2ND FORM IS BELOW!!!!!
 
 
-function createFormHandler(e) {
-  e.preventDefault()
-  const cityInput = document.querySelector('#checkcity-id').value
-  const weatherTypeInput = document.querySelector('#weather-type-input').value  
-  const descriptionInput = document.querySelector('#description-input').value
-  postFetch(cityInput, weatherTypeInput, descriptionInput)
-}
+// function createFormHandler(e) {
+//   e.preventDefault()
+//   const cityInput = document.querySelector('#checkcity-id').value
+//   const weatherTypeInput = document.querySelector('#weather-type-input').value  
+//   const descriptionInput = document.querySelector('#description-input').value
+//   postFetch(cityInput, weatherTypeInput, descriptionInput)
+// }
 
-function postFetch(condition_id, weather_type, description) {
+function postFetchOutfits(e) {
+  e.preventDefault();
   // build my body object outside of my fetch
-  const bodyData = {condition_id, weather_type, description}
+  const cityConditionId = document.querySelector('input[type=checkbox]:checked').value
+  const outfit = document.querySelector('#description-input').value
+  const bodyData = {
+    cities_condition_id: cityConditionId, 
+    outfit: outfit
+  }
 
-  fetch(endPoint, {
+  fetch('http://localhost:3000/api/v1/update_outfit', {
     // POST request
-    method: "POST",
+    method: "PATCH",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(bodyData)
   })
   .then(response => response.json())
   .then(outfit => {
     console.log(outfit);
-    const outfitData = outfit.data
+    // const outfitData = outfit.data
     // render JSON response
-    let newOutfit = new Outfit(outfitData, outfitData.attributes)
-    document.querySelector('#outfit-container').innerHTML += newOutfit.renderOutfitCard()
+  //   let newOutfit = new Outfit(outfitData, outfitData.attributes)
+  //   document.querySelector('#outfit-container').innerHTML += newOutfit.renderOutfitCard()
   })
 
 }

@@ -15,6 +15,6 @@ class Outfit {
         <br>
         <h5>${this.description} &#8451;</h5>
         <br>
-        </div>
+        </div>`
       }
   }
