@@ -16,9 +16,9 @@ class Weather {
         Today's weather: ${this.description}
         <br>
         <h1>${this.temperature} &#8451;</h1><br>
-        </h3>
+        <h4>
         Wear a ${this.outfit}
-        </h3>
+        </h4>
         </div>
         <br><br>`;
     }

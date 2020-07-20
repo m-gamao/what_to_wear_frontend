@@ -67,6 +67,10 @@ function displayForm() {
   document.getElementById("outfits-form").style.display = "block";
 }
 
+function CollapseForm() {
+  document.getElementById("outfits-form").style.display = "none";
+};
+
 // function getOutfits(e) {
 //   e.preventDefault() //prevent page refresh.
 //   //now get the input from the user
@@ -97,5 +101,6 @@ function postFetchOutfits(e) {
     let newOutfitCard = newOutfit.renderWeatherCard();
     document.getElementById('weather-container').innerHTML = newOutfitCard;
   })
+
 
 }
