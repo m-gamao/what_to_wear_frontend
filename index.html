@@ -18,12 +18,15 @@
   </head>
   <body>
     <div class="form-container">
-      <form id="city-form">      
+      <form id="city-form">
+
         <h1>What to wear</h1><br>
+
         <h4> 
           Want to know how to dress for the weather today? <br>
           Please select your city:
         </h4>
+
         <select name="cities" id="user-input">
           <option value="1">New York City</option>
           <option value="2">Los Angeles</option>
@@ -32,18 +35,19 @@
           <option value="5">Beijing</option>
           <option value="6">Paris</option>
         </select>
+
         <br><br>
+
         <input id="create-button" type="submit" name="submit" value="What should I wear?" class="submit">
         <br><br>
         <div id="weather-container">
         </div>
       </form>
-
+    </div>
       
     <div class = "edit-form-container">
       <!-- The user clicks the button to edit outfits and the form appears -->
       <button id="eventClick" onclick=displayForm()>Edit my outfits</button>
-
 
     <form id="outfits-form" action="">
       Select a city:
@@ -57,6 +61,7 @@
         <option value="6">Paris</option>
       </select>
       <br>
+
       <div class="div3">
         <label for="description">Description:</label>
         <input type="text" id="description-input" name="description-input" value=""><br>
@@ -64,8 +69,7 @@
 
       <input type="submit" value="Submit">
 
-
-        <input type="button" onclick="CollapseForm()" value="Hide form">
+      <input type="button" onclick="CollapseForm()" value="Hide form">
         </form>
         </div>
         
