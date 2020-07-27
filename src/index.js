@@ -1,23 +1,24 @@
-// STEP 1:
+// STEP 1: LOAD DOM CONTENT *************************
   // Event listener for the form:
 document.addEventListener('DOMContentLoaded', () => {
   const cityForm = document.querySelector("#city-form");
   cityForm.addEventListener("submit", e => createFormHandler(e))
+  
   const outfitsForm = document.querySelector("#outfits-form");
   outfitsForm.addEventListener("submit", e => postFetchOutfits(e))
  
-  const citySelect = document.querySelector('#checkcity-id');
-  citySelect.addEventListener('change', function(event){
+  const citySelectB = document.querySelector('#checkcity-id');
+  citySelectB.addEventListener('change', function(event){
     setOutfitDescription(this.value);
 
   })
 })
 
-// STEP 2: 
+// STEP 2 (Fetch 1): DISPLAY CURRENT OUTFIT  *************************
   // This step will allow the user to see the original outfit listed in the description input field.
-   // take the cities_condition_id and make a fetch request to get the corresponding condition  
-  // use the condition to update the description in the new outfit form
-   // set the value of the description input to the outfit so the user can see what they are changing.
+  // Take the cities_condition_id and make a fetch request to get the corresponding condition  
+  // Use the condition to update the description in the new outfit form
+  // Set the value of the description input to the outfit so the user can see what they are changing.
 function setOutfitDescription(citiesConditionId) {
   fetch(`http://localhost:3000/api/v1/conditions/${citiesConditionId}`)
   .then(response => response.json())
@@ -25,45 +26,52 @@ function setOutfitDescription(citiesConditionId) {
     populateOutfitCondition(condition.outfit);
   })
 }
-​
 function populateOutfitCondition(outfit) {
    document.getElementById('description-input').value = outfit;
 }
 
-// STEP 3:
+// STEP 3 (Fetch 2): SORT CITY NAMES IN FORM 1 *************************
   // Need to pull in the city names from the back end and then sort them dynamically in the JS.
   // get the names of all the cities in the cities_conditions index
   // render the cities in sorted order as per class file
-function getCityNames(e)
-  fetch(`http://localhost:3000/api/v1/conditions/${citiesConditionId}`)
-
   
-function setOutfitDescription(citiesConditionId) {
+setCities();
+
+  //Pull city names from db and sort the cities by name
+  //.sort() defaults to A -> Z order
+function setCities() {
   fetch(`http://localhost:3000/api/v1/cities_conditions`)
   .then(response => response.json())
   .then(cities => {
+    cities.sort((a, b) => (a.name > b.name) ? 1 : -1);
 
-    const arrayCities = ["New York City", "Los Angeles", "Tokyo", "London", "Beijing", "Paris"]
-    cities.sort();
-    console.log(cities);
+    // remove any duplicate city names
 
-    let newCities = new Cities(data);  // Data comes from the above fetch. Pass it to this method.
-    let newCitiesCard = newCities.renderCitiesCard();
-    document.getElementById('city-container').innerHTML = newCitiesCard;    ;
+    // get the select element
+    let citySelectA = document.getElementById('user-input');
+    // clear out the select element in case something was there before
+    citySelectA.innerHTML = '';
+    // add a blank option so that its empty when it loads, for added effect.
+    citySelectA.innerHTML += '<option></option>';
+    // loop over the now sorted list of cities. idx stands for index
+    cities.map(function(city, idx){
+      // add as options in dropdown for city id, city name, using string interpolation
+      citySelectA.innerHTML += `<option value=${city.id}>${city.name}</option>`;
+    })
   })
 }
 
-// 2) Form handler that handles the event. The city's options value is the id:
+// STEP 4: GET USER INPUT & START EVENT ***************** 
+// Fetch #3
+// Form handler that handles the event. The city's options value is the id:
     //get the value selected by the user.
-      //then we do the fetch, we'll send the id to the backend, 
-      //to get the condition related to it.
-      // so that params[:id] to be the id of the cities_condition (ln 68)
+      //send the id to the backend with the fetch to get the condition related to it.
+      //so that params[:id] to be the id of the cities_condition (ln 68)
 function createFormHandler(e) {
     e.preventDefault()  //prevents page refresh.
 
     const userInput = document.querySelector('#user-input').value;
     console.log(userInput); // Otherwise this function has no effect
-
 
       fetch(`http://localhost:3000/api/v1/conditions/${userInput}`)  
       .then(response => response.json())
@@ -75,17 +83,19 @@ function createFormHandler(e) {
       
 }
 
-// 3) Give edit and update capability to outfits model
-// create a function that adds new outfits and displays them
+// STEP 5: ALLOW USER TO EDIT OUTFITS & SAVE TO DB ***************************
+// (Fetch #4)
+// A function that allows user to edit outfits and display them
 
-// Step 1: The form is invisible when the page first loads. (see 'window.onload')
-// Step 2: When the user clicks the Edit my oufits button, the form appears. (using html 'eventclick' button)  
-// Step 3: User fills out the form. (function postFetchOutfits). Form has 2 user inputs to gather: 
-        // the user's city selection, and their description of an outfit for that city
-        // This builds the body object, we will call it 'bodyData', where you are setting
+// 1) Make the form invisible when the page first loads, using 'window.onload'
+// 2) User clicks the "Edit my oufits" button and form appears. (using html 'eventclick' button)  
+// 3) User fills out form, see "function postFetchOutfits" below. 
+  // Form has 2 user inputs to gather: 
+        // user's selection of city, and 
+        // the new outfit description
+  // This builds the body object, we will call it 'bodyData', where you are setting
         // the property/object's attributes to the constant variables you just created in the
-        // function.
-// Step 4: 
+        // function. 
 
 window.onload = function () {
   document.getElementById("outfits-form").style.display = "none";
@@ -98,14 +108,6 @@ function displayForm() {
 function CollapseForm() {
   document.getElementById("outfits-form").style.display = "none";
 };
-
-// function getOutfits(e) {
-//   e.preventDefault() //prevent page refresh.
-//   //now get the input from the user
-//   const newDescription = document.querySelector("#description-input").value;
-//   const newWeatherType = document.querySelector("#weather-type-input").value;
-//   document.addEventListener("submit", e => createOutfits(e))
-// }
 
 // key:value hashes in the bodyData:
 
