@@ -32,8 +32,8 @@ function populateOutfitCondition(outfit) {
 
 // STEP 3 (Fetch 2): SORT CITY NAMES IN FORM 1 *************************
   // Need to pull in the city names from the back end and then sort them dynamically in the JS.
-  // get the names of all the cities in the cities_conditions index
-  // render the cities in sorted order as per class file
+  // Get the names of all the cities in the cities_conditions index.
+  // Render the sorted cities.
   
 setCities();
 
@@ -80,8 +80,36 @@ function createFormHandler(e) {
       
 }
 
-// STEP 5: ALLOW USER TO EDIT OUTFITS & SAVE TO DB ***************************
-// (Fetch #4)
+// STEP 5 (Fetch 4): SORT CITY NAMES IN FORM 2 *************************
+  // Pull city names from the back end again and sort them in the JS.
+  // Get the names of all the cities in the cities_conditions index
+  // Render the sorted cities.
+  
+  setCitiesB();
+
+  //Pull city names from db and sort the cities by name
+  //.sort() defaults to A -> Z order
+function setCitiesB() {
+  fetch(`http://localhost:3000/api/v1/cities_conditions`)
+  .then(response => response.json())
+  .then(cities => {
+    cities.sort((a, b) => (a.name > b.name) ? 1 : -1);
+    // get the select element
+    let citySelectB = document.getElementById('checkcity-id');
+    // clear out the select element in case something was there before
+    citySelectB.innerHTML = '';
+    // add a blank option so that its empty when it loads, for added effect.
+    // citySelectB.innerHTML += '<option></option>';
+    // loop over the now sorted list of cities. idx stands for index
+    cities.map(function(city, idx){
+      // add as options in dropdown for city id, city name, using string interpolation
+      citySelectB.innerHTML += `<option value=${city.id}>${city.name}</option>`;
+    })
+  })
+}
+
+// STEP 6: ALLOW USER TO EDIT OUTFITS & SAVE TO DB ***************************
+// (Fetch #5)
 // A function that allows user to edit outfits and display them
 
 // 1) Make the form invisible when the page first loads, using 'window.onload'
