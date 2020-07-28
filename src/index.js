@@ -44,9 +44,6 @@ function setCities() {
   .then(response => response.json())
   .then(cities => {
     cities.sort((a, b) => (a.name > b.name) ? 1 : -1);
-
-    // remove any duplicate city names
-
     // get the select element
     let citySelectA = document.getElementById('user-input');
     // clear out the select element in case something was there before
