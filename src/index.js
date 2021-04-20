@@ -1,4 +1,4 @@
-// STEP 1: LOAD DOM CONTENT *************************
+//**** STEP 1: LOAD DOM CONTENT *************************
   // Event listener for the form:
 document.addEventListener('DOMContentLoaded', () => {
   const cityForm = document.querySelector("#city-form");
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 })
 
-// STEP 2 (Fetch 1): DISPLAY CURRENT OUTFIT  *************************
+//**** STEP 2 (Fetch 1): DISPLAY CURRENT OUTFIT  *************************
   // This step will allow the user to see the original outfit listed in the description input field.
   // Take the cities_condition_id and make a fetch request to get the corresponding condition  
   // Use the condition to update the description in the new outfit form
@@ -30,7 +30,7 @@ function populateOutfitCondition(outfit) {
    document.getElementById('description-input').value = outfit;
 }
 
-// STEP 3 (Fetch 2): SORT CITY NAMES IN FORM 1 *************************
+//**** STEP 3 (Fetch 2): SORT CITY NAMES IN FORM 1 *************************
   // Need to pull in the city names from the back end and then sort them dynamically in the JS.
   // Get the names of all the cities in the cities_conditions index.
   // Render the sorted cities.
@@ -58,7 +58,7 @@ function setCities() {
   })
 }
 
-// STEP 4: GET USER INPUT & START EVENT ***************** 
+//**** STEP 4: GET USER INPUT & START EVENT ***************** 
 // Fetch #3
 // Form handler that handles the event. The city's options value is the id:
     //get the value selected by the user.
@@ -80,7 +80,7 @@ function createFormHandler(e) {
       
 }
 
-// STEP 5 (Fetch 4): SORT CITY NAMES IN FORM 2 *************************
+//**** STEP 5 (Fetch 4): SORT CITY NAMES IN FORM 2 *************************
   // Pull city names from the back end again and sort them in the JS.
   // Get the names of all the cities in the cities_conditions index
   // Render the sorted cities.
@@ -97,8 +97,8 @@ function setCitiesB() {
     // get the select element
     let citySelectB = document.getElementById('checkcity-id');
     // clear out the select element in case something was there before
-    citySelectB.innerHTML = '';
     // add a blank option so that its empty when it loads, for added effect.
+    citySelectB.innerHTML = '';
     // citySelectB.innerHTML += '<option></option>';
     // loop over the now sorted list of cities. idx stands for index
     cities.map(function(city, idx){
@@ -108,7 +108,7 @@ function setCitiesB() {
   })
 }
 
-// STEP 6: ALLOW USER TO EDIT OUTFITS & SAVE TO DB ***************************
+//**** STEP 6: Form 2: ALLOW USER TO EDIT OUTFITS & SAVE TO DB ***************************
 // (Fetch #5)
 // A function that allows user to edit outfits and display them
 
