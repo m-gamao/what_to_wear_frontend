@@ -7,6 +7,6 @@ also edit the outfits for each city. For proof of concept, I seeded the database
 My goal for this app is to one day add the Open Weather API to get real time weather
 and then allow the user to generate a database of outfits that will be suited for that weather.
 
-The backend API is on my GitHub repo at https://github.com/m-gamao/My_new_API_saved-git-version.git
+The backend API is on my GitHub repo at https://github.com/m-gamao/What_to_Wear_Backend.git
 
-Thanks for stopping by.
+Thanks for stopping by!
